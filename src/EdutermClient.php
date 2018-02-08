@@ -80,6 +80,12 @@ class EdutermClient {
 	 * 3. if not empty, put into easy-iterable $response_table
 	 */
 	public function request( $query, $args = array() ) {
+		# reset response values
+		$this->response_data = "";
+		$this->response_json = array();
+		$this->response_table = array();
+
+		# get data and validate response status 200
 		$this->getData( $query, $args );
 		$this->checkStatusCode();
 
