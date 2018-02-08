@@ -38,8 +38,13 @@ class EdutermClient {
 	private $endpoint = "";
 	private $statuscode = 0;
 
+	# contains last sent query
+	public $query = "";
+	# contains raw response data
 	public $response_data = "";
+	# contains json_encoded json response, if available
 	public $response_json = array();
+	# contains iterable response array, if available
 	public $response_table = array();
 
 
