@@ -56,6 +56,12 @@ class EdutermClient {
 		}
 	}
 
+	public function setBaseUrl( $baseurl ) {
+		if ( !empty( $baseurl ) ) {
+			$this->baseurl = $baseurl;
+		}
+	}
+
 	public function setUseragent( $useragent ) {
 		if ( !empty( $useragent ) ) {
 			$this->useragent = $useragent;
