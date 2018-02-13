@@ -98,7 +98,7 @@ class EdutermClient {
 	/**
 	 * Uses Eduterm query and arguments to create a complete request query.
 	 */
-	private function setQuery( $query, $args ) {
+	public function setQuery( $query, $args ) {
 		$arglist = array();
 		foreach( $args as $key => $value ) {
 			$arglist[] = $key."=".$value;
@@ -115,7 +115,7 @@ class EdutermClient {
 	 * Requests data from Eduterm using provided query and arguments.
 	 * Fills the $response_data and $statuscode.
 	 */
-	private function setData() {
+	public function setData() {
 		$curl = curl_init( $this->query );
 		curl_setopt( $curl, CURLOPT_HEADER, FALSE );
 		curl_setopt( $curl, CURLOPT_RETURNTRANSFER, TRUE );
@@ -130,7 +130,7 @@ class EdutermClient {
 	 * Checks the statuscode after getting data. Throw exception
 	 * if statuscode is not 200.
 	 */
-	private function checkStatusCode() {
+	public function checkStatusCode() {
 		switch( $this->statuscode ) {
 			case 200:
 				return;
@@ -146,7 +146,7 @@ class EdutermClient {
 	/**
 	 * Sets the response_json if raw data is in json format.
 	 */
-	private function setJson() {
+	public function setJson() {
 		$json = json_decode($this->response_data, TRUE);
 		if ( !is_null( $json )) {
 			$this->response_json = $json;
@@ -156,7 +156,7 @@ class EdutermClient {
 	/**
 	 * Turns the Json-Sparql results into an iterable table.
 	 */
-	private function setTable() {
+	public function setTable() {
 		if ( !empty( $this->response_json ) ) {
 			foreach( $this->response_json["results"]["bindings"] as $datarow ) {
 				$row = array();
