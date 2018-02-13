@@ -86,30 +86,19 @@ class EdutermClient {
 		$this->response_table = array();
 
 		# get data and validate response status 200
-		$this->getData( $query, $args );
+		$this->setData( $query, $args );
 		$this->checkStatusCode();
 
-		$json = json_decode($this->response_data, TRUE);
-		if ( !is_null( $json  )) {
-			$this->response_json = $json;
-		}
-
-		if ( !empty( $this->response_json) ) {
-			foreach( $this->response_json["results"]["bindings"] as $datarow ) {
-				$row = array();
-				foreach( $datarow as $columnname => $celldata ) {
-					$row[$columnname] = $this->getTypedValue( $celldata );
-				}
-				$this->response_table[] = $row;
-			}
-		}
+		# if result is json, parse further in usable formats
+		$this->setJson();
+		$this->setTable();
 	}
 
 	/**
 	 * Requests data from Eduterm using provided query and arguments.
 	 * Fills the $response_data and $statuscode.
 	 */
-	private function getData( $query, $args ) {
+	private function setData( $query, $args ) {
 		$arglist = array();
 		foreach( $args as $key => $value ) {
 			$arglist[] = $key."=".$value;
@@ -145,6 +134,31 @@ class EdutermClient {
 				throw new InvalidArgumentException( "Error getting data, wrong query-argument combination." );
 			default:
 				throw new UnexpectedValueException( "Error getting data" );
+		}
+	}
+
+	/**
+	 * Sets the response_json if raw data is in json format.
+	 */
+	private function setJson() {
+		$json = json_decode($this->response_data, TRUE);
+		if ( !is_null( $json )) {
+			$this->response_json = $json;
+		}
+	}
+
+	/**
+	 * Turns the Json-Sparql results into an iterable table.
+	 */
+	private function setTable() {
+		if ( !empty( $this->response_json ) ) {
+			foreach( $this->response_json["results"]["bindings"] as $datarow ) {
+				$row = array();
+				foreach( $datarow as $columnname => $celldata ) {
+					$row[$columnname] = $this->getTypedValue( $celldata );
+				}
+				$this->response_table[] = $row;
+			}
 		}
 	}
 
