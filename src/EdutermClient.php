@@ -86,7 +86,8 @@ class EdutermClient {
 		$this->response_table = array();
 
 		# get data and validate response status 200
-		$this->setData( $query, $args );
+		$this->setQuery( $query, $args );
+		$this->setData();
 		$this->checkStatusCode();
 
 		# if result is json, parse further in usable formats
@@ -95,10 +96,9 @@ class EdutermClient {
 	}
 
 	/**
-	 * Requests data from Eduterm using provided query and arguments.
-	 * Fills the $response_data and $statuscode.
+	 * Uses Eduterm query and arguments to create a complete request query.
 	 */
-	private function setData( $query, $args ) {
+	private function setQuery( $query, $args ) {
 		$arglist = array();
 		foreach( $args as $key => $value ) {
 			$arglist[] = $key."=".$value;
@@ -109,7 +109,13 @@ class EdutermClient {
 			$argstring = "&".implode( "&", $arglist );
 		}
 		$this->query = $this->baseurl.$query."?api_key=".$this->apikey.$this->endpoint.$argstring;
-		
+	}
+
+	/**
+	 * Requests data from Eduterm using provided query and arguments.
+	 * Fills the $response_data and $statuscode.
+	 */
+	private function setData() {
 		$curl = curl_init( $this->query );
 		curl_setopt( $curl, CURLOPT_HEADER, FALSE );
 		curl_setopt( $curl, CURLOPT_RETURNTRANSFER, TRUE );
