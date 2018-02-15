@@ -1,0 +1,74 @@
+{
+  "head": {
+    "vars": [
+      "vak",
+      "vakLabel",
+      "lomPurpose",
+      "hasChildren"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "vak": {
+          "type": "uri",
+          "value": "http://purl.edustandaard.nl/begrippenkader/c001f86a-4f8f-4420-bd78-381c615ecedc"
+        },
+        "vakLabel": {
+          "xml:lang": "nl",
+          "type": "literal",
+          "value": "Aardrijkskunde"
+        },
+        "lomPurpose": {
+          "type": "literal",
+          "value": "discipline"
+        },
+        "hasChildren": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#boolean",
+          "type": "literal",
+          "value": "true"
+        }
+      },
+      {
+        "vak": {
+          "type": "uri",
+          "value": "http://purl.edustandaard.nl/begrippenkader/7aa6f577-b02d-484a-90d6-72fc80199f9a"
+        },
+        "vakLabel": {
+          "xml:lang": "nl",
+          "type": "literal",
+          "value": "Muziek"
+        },
+        "lomPurpose": {
+          "type": "literal",
+          "value": "discipline"
+        },
+        "hasChildren": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#boolean",
+          "type": "literal",
+          "value": "false"
+        }
+      },
+      {
+        "vak": {
+          "type": "uri",
+          "value": "http://purl.edustandaard.nl/begrippenkader/ef3a0b2e-0843-4e0a-b45b-788be6e1ec8d"
+        },
+        "vakLabel": {
+          "xml:lang": "nl",
+          "type": "literal",
+          "value": "Geschiedenis"
+        },
+        "lomPurpose": {
+          "type": "literal",
+          "value": "discipline"
+        },
+        "hasChildren": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#boolean",
+          "type": "literal",
+          "value": "true"
+        }
+      }
+    ]
+  }
+}

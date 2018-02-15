@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:bk="http://purl.edustandaard.nl/begrippenkader/"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:dcterms="http://purl.org/dc/terms/">
+
+<rdf:Description rdf:about="http://purl.edustandaard.nl/begrippenkader/c001f86a-4f8f-4420-bd78-381c615ecedc">
+	<bk:heeftGoedkeuringsdatum rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2012-05-10</bk:heeftGoedkeuringsdatum>
+	<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2013-06-05</dcterms:modified>
+	<bk:heeftWijzigingsdatum rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2013-06-05</bk:heeftWijzigingsdatum>
+	<skos:prefLabel xml:lang="nl">Aardrijkskunde</skos:prefLabel>
+</rdf:Description>
+
+</rdf:RDF>
