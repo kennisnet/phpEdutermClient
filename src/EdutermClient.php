@@ -98,7 +98,7 @@ class EdutermClient {
 	/**
 	 * Uses Eduterm query and arguments to create a complete request query.
 	 */
-	public function setQuery( $query, $args ) {
+	public function setQuery( $query, $args = array() ) {
 		$arglist = array();
 		foreach( $args as $key => $value ) {
 			$arglist[] = $key."=".$value;
