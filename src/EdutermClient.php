@@ -7,7 +7,7 @@ use \InvalidArgumentException;
 /**
  * PHP package for interfacing with Eduterm.
  *
- * @version 0.0.0
+ * @version 1.0.0
  * @author Wim Muskee <wimmuskee@gmail.com>
  * 
  * Copyright 2018 Stichting Kennisnet
