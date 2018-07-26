@@ -7,7 +7,7 @@ use \InvalidArgumentException;
 /**
  * PHP package for interfacing with Eduterm.
  *
- * @version 1.0.0
+ * @version 1.1.0
  * @author Wim Muskee <wimmuskee@gmail.com>
  * 
  * Copyright 2018 Stichting Kennisnet
@@ -35,6 +35,7 @@ class EdutermClient {
 	private $baseurl = "http://api.onderwijsbegrippen.kennisnet.nl/1.0/Query/";
 	private $apikey = "";
 	private $useragent = "phpEdutermClient";
+	private $timeout = 10;
 	private $endpoint = "";
 	private $statuscode = 0;
 
@@ -70,6 +71,12 @@ class EdutermClient {
 	public function setUseragent( $useragent ) {
 		if ( !empty( $useragent ) ) {
 			$this->useragent = $useragent;
+		}
+	}
+
+	public function setTimeout( $timeout ) {
+		if ( !empty( $timeout ) && is_int( $timeout ) ) {
+			$this->timeout = $timeout;
 		}
 	}
 
@@ -120,7 +127,8 @@ class EdutermClient {
 		curl_setopt( $curl, CURLOPT_HEADER, FALSE );
 		curl_setopt( $curl, CURLOPT_RETURNTRANSFER, TRUE );
 		curl_setopt( $curl, CURLOPT_ENCODING, "gzip,deflate" );
-		curl_setopt( $curl ,CURLOPT_USERAGENT, $this->useragent );
+		curl_setopt( $curl, CURLOPT_USERAGENT, $this->useragent );
+		curl_setopt( $curl, CURLOPT_TIMEOUT, $this->timeout );
 		$this->response_data = curl_exec( $curl );
 		$this->statuscode = curl_getinfo( $curl, CURLINFO_HTTP_CODE);
 		curl_close( $curl );
