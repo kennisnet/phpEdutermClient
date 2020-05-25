@@ -5,7 +5,7 @@ php:
   - 7.3
 
 install:
-  - composer install --dev --prefer-dist --no-interaction
+  - composer install --prefer-dist --no-interaction
 
 script:
   - phpunit

@@ -3,15 +3,13 @@ namespace Test\Kennisnet\EdutermClient;
 
 use Kennisnet\EdutermClient\EdutermClient;
 use PHPUnit\Framework\TestCase;
+use \UnexpectedValueException;
 
 class EduTermClientTest extends TestCase {
 
-    /**
-     * @expectedException \UnexpectedValueException
-     * @expectedExceptionMessage Provided API key is not a valid uuid:
-     */
     public function testInvalidUUID()
     {
+        $this->expectException(UnexpectedValueException::class);
         new EdutermClient('');
     }
 
