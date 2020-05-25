@@ -7,10 +7,10 @@ use \InvalidArgumentException;
 /**
  * PHP package for interfacing with Eduterm.
  *
- * @version 1.1.0
+ * @version 1.1.1
  * @author Wim Muskee <wimmuskee@gmail.com>
  * 
- * Copyright 2018 Stichting Kennisnet
+ * Copyright 2018-2020 Stichting Kennisnet
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,7 @@ use \InvalidArgumentException;
 **/
 
 class EdutermClient {
-	private $baseurl = "http://api.onderwijsbegrippen.kennisnet.nl/1.0/Query/";
+	private $baseurl = "https://api.onderwijsbegrippen.kennisnet.nl/1.0/Query/";
 	private $apikey = "";
 	private $useragent = "phpEdutermClient";
 	private $timeout = 10;

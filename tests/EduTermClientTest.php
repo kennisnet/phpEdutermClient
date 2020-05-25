@@ -20,7 +20,7 @@ class EduTermClientTest extends TestCase {
         $apiKey = 'c001f86a-4f8f-4420-bd78-381c615ecedc';
 
         $expectedQuery = sprintf(
-            'http://api.onderwijsbegrippen.kennisnet.nl/1.0/Query/test?api_key=%s&foo=bar',
+            'https://api.onderwijsbegrippen.kennisnet.nl/1.0/Query/test?api_key=%s&foo=bar',
             $apiKey
         );
 
@@ -50,7 +50,7 @@ class EduTermClientTest extends TestCase {
     {
         $apiKey = 'c001f86a-4f8f-4420-bd78-381c615ecedc';
         $expectedQuery = sprintf(
-            'http://api.onderwijsbegrippen.kennisnet.nl/1.0/Query/test?api_key=%s&endpoint=testendpoint',
+            'https://api.onderwijsbegrippen.kennisnet.nl/1.0/Query/test?api_key=%s&endpoint=testendpoint',
             $apiKey
         );
 
