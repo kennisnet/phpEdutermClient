@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/kennisnet/phpEdutermClient.svg?branch=master)](https://travis-ci.org/kennisnet/phpEdutermClient)
-
 # phpEdutermClient
 PHP client for interfacing with Eduterm.
 
